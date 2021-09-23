@@ -16,7 +16,7 @@ use App\Http\Controllers\TicketController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('base');
 });
 
 
