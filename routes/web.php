@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('base');
 });
 
 
@@ -35,3 +35,6 @@ Route::get('tickets/create',[TicketController::class,'create'])->name('create');
 
 Route::delete('tickets/{id}',[UserController::class,'destroy'])->name('destroy');
 });
+
+
+
