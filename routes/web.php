@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TicketController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -34,6 +36,4 @@ Route::post('tickets/create',[TicketController::class,'store'])->name('store');
 Route::get('tickets/create',[TicketController::class,'create'])->name('create');
 
 Route::delete('tickets/{id}',[UserController::class,'destroy'])->name('destroy');
-});
-
 });
