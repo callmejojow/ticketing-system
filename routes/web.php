@@ -35,5 +35,3 @@ Route::get('tickets/create',[TicketController::class,'create'])->name('create');
 
 Route::delete('tickets/{id}',[UserController::class,'destroy'])->name('destroy');
 });
-
-});
