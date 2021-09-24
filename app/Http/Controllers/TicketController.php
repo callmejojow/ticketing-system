@@ -12,6 +12,7 @@ class TicketController extends Controller
 
     public function create()
     {
+        
         return view('tickets.create');
     }
 
@@ -24,7 +25,7 @@ class TicketController extends Controller
     public function index()
     {
         $index = Ticket::paginate(5);
-        return view('tickets',['tickets' => $index]);
+        return view('tickets.index',['tickets' => $index]);
     }
 
 

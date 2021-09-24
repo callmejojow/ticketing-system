@@ -22,19 +22,19 @@ Route::get('/', function () {
 
 Route::name('tickets.')->group(function(){
 
-Route::get('tickets',[TicketController::class,'index'])->name('index');
+Route::get('/tickets',[TicketController::class,'index'])->name('index');
 
-Route::get('tickets/{id}',[TicketController::class,'show'])->name('show')
+Route::get('/tickets/{id}/show',[TicketController::class,'show'])->name('show')
     ->missing(function(){
         return response()->view('notfound');
     });
 
-Route::patch('tickets/{id}',[TicketController::class,'update'])->name('update');
+Route::patch('/tickets/{id}/update',[TicketController::class,'update'])->name('update');
 
-Route::post('tickets/create',[TicketController::class,'store'])->name('store');
+Route::post('/tickets/create',[TicketController::class,'store'])->name('store');
 
 Route::get('tickets/create',[TicketController::class,'create'])->name('create');
 
-Route::delete('tickets/{id}',[UserController::class,'destroy'])->name('destroy');
+Route::delete('/tickets/{id}/delete',[UserController::class,'destroy'])->name('destroy');
 
 });

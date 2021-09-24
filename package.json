@@ -14,5 +14,10 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+    },
+    "dependencies": {
+        "@headlessui/react": "^1.4.1",
+        "@heroicons/react": "^1.0.4",
+        "tailwindcss": "^2.2.15"
     }
 }
