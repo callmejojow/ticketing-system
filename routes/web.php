@@ -19,6 +19,9 @@ Route::get('/', function () {
     return view('base');
 });
 
+Route::get('tickets/notfound', function () { 
+    return view('tickets.notfound');
+});
 
 Route::name('tickets.')->group(function(){
 
