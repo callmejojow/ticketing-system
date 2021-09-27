@@ -9,6 +9,7 @@
 
 <form class="space-y-6"  action="{{ route('tickets.create') }}" 
       method="POST">
+  @csrf
   <div class="space-y-6 bg-gray-100">
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
@@ -30,7 +31,7 @@
                     <div class="mt-1 flex rounded-md shadow-sm">
                       <input type="text" name="username" id="username" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" required value="自动获取">
 
-                       @error('username')
+                       @error('user_id')
                           <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>
                        @enderror
 
@@ -39,8 +40,9 @@
                     <label for="manager_id" class="block text-sm font-medium text-gray-700">主管姓名
                     </label>
                     <select id="manager_id" name="manager_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md ">
+                        <option selected>请选择（非必选）</option>
                         <option>张三</option>
-                        <option selected>李四</option>
+                        <option>李四</option>
                         <option>王五</option>
                     </select>
 
@@ -49,7 +51,8 @@
                       所属门店
                     </label>
                     <select id="location_id" name="location_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                        <option selected>一店</option>
+                        <option selected>请选择（非必选）</option>
+                        <option>一店</option>
                         <option>二店</option>
                         <option>三店</option>
                         <option>四店</option>
@@ -62,8 +65,9 @@
                       所属团队
                     </label>
                     <select id="team_id" name="team_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                        <option selected>请选择（非必选）</option>
                         <option>财务团队</option>
-                        <option selected>管理团队</option>
+                        <option>管理团队</option>
                         <option>店长</option>
                     </select>
 
@@ -110,26 +114,33 @@
             <fieldset>
               <div>
                 <legend class="text-lg font-medium text-gray-700">申请紧急程度</legend>
+
+                 @error('priority')
+                 <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>
+                 @enderror
               </div>
               <div class="mt-4 space-y-4">
                 <div class="flex items-center">
-                  <input id="urgent" name="urgent" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                  <label for="urgent" class="ml-3 block text-sm font-medium text-gray-700">
+                  <input id="priority" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+
+                    <label for="urgent" class="ml-3 block text-sm font-medium text-gray-700">
                     请尽快处理
-                  </label>
+                    </label>
                 </div>
+
                 <div class="flex items-center">
-                  <input id="limited_days" name="limited_days" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                  <label for="limited_days" class="ml-3 block text-sm font-medium text-gray-700">
-                    请在</label> 
-                    <input type="number" name="daycounts" class="mt-1 w-16 pl-3 pr-1 py-1 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                    <label>天内处理</label>
+                  <input id="priority" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                    <label for="limited_days" class="ml-3 block text-sm font-medium text-gray-700">
+                       请在
+                        <input type="number" name="daycounts" class="mt-1 w-16 pl-3 pr-1 py-1 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                       天内处理</label>
                 </div>
+
                 <div class="flex items-center">
-                  <input id="nonurgent" name="nonurgent" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
-                  <label for="nonurgent" class="ml-3 block text-sm font-medium text-gray-700">
+                  <input id="priority" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                    <label for="nonurgent" class="ml-3 block text-sm font-medium text-gray-700">
                     非紧急
-                  </label>
+                    </label>
                 </div>
             </fieldset>
         </div>
@@ -149,8 +160,12 @@
 
                     <label for="description" class="block text-sm font-medium text-gray-700">问题描述</label>
 
+                          @error('description')
+                          <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>
+                          @enderror
+
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" required>
                     </div>
 
                     <label for="comments" class="mt-10 block text-sm font-medium text-gray-700">相关建议</label>
@@ -169,9 +184,9 @@
            </div>
 
            <div class="mt-6 mb-6 flex justify-end sm:mb-3">
-                        <button type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                        <a class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" href="index">
                           {{ __('Cancel') }}
-                        </button>
+                        </a>
                         <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
                           {{ __('Create') }}
                         </button>
