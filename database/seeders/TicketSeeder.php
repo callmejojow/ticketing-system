@@ -14,6 +14,9 @@ class TicketSeeder extends Seeder
      */
      public function run()
     {
+        $status = ['pending', 'in_progress','solved'];
+        $priority = ['limited_days', 'urgent','nonurgent'];
+
         Ticket::factory()->count(50)->create();
     }
 }

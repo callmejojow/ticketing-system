@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Ticket;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Faker\Generator as Faker;
 
 class TicketFactory extends Factory
 {
@@ -25,11 +26,7 @@ class TicketFactory extends Factory
         return [
             'user_id' => User::factory(),
             'manager_id' => User::factory(),
-            'location_id' => $this->faker->randomDigit(),
-            'team_id' => $this->faker->randomDigit(),
-            'status' => ['pending','in progress','solved'],
-            'priority' => ['urgent','limited_days','nonurgent'],
-            'description' => $this->$faker->paragraph()
+            'description' => $this->faker->paragraph()
         ];
     }
 }
