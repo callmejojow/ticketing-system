@@ -25,11 +25,11 @@
 
                 <div class="item-stretch grid grid-cols-2 gap-6">
 
-                    <label for="username" class="block text-sm font-medium text-gray-700">
+                    <label for="user_id" class="block text-sm font-medium text-gray-700">
                       员工姓名
                     </label>
                     <div class="mt-1 flex rounded-md shadow-sm">
-                      <input type="text" name="username" id="username" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" required value="自动获取">
+                      <input type="text" name="user_id" id="user_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" required value="自动获取">
 
                        @error('user_id')
                           <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>
@@ -41,9 +41,9 @@
                     </label>
                     <select id="manager_id" name="manager_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md ">
                         <option selected>请选择（非必选）</option>
-                        <option>张三</option>
-                        <option>李四</option>
-                        <option>王五</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
                     </select>
 
 
@@ -52,13 +52,13 @@
                     </label>
                     <select id="location_id" name="location_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                         <option selected>请选择（非必选）</option>
-                        <option>一店</option>
-                        <option>二店</option>
-                        <option>三店</option>
-                        <option>四店</option>
-                        <option>五店</option>
-                        <option>六店</option>
-                        <option>办公室</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
                     </select>
 
                     <label for="team_id" class="block text-sm font-medium text-gray-700">
@@ -66,9 +66,11 @@
                     </label>
                     <select id="team_id" name="team_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                         <option selected>请选择（非必选）</option>
-                        <option>财务团队</option>
-                        <option>管理团队</option>
-                        <option>店长</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
                     </select>
 
                 </div>
@@ -132,7 +134,7 @@
                   <input id="priority" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
                     <label for="limited_days" class="ml-3 block text-sm font-medium text-gray-700">
                        请在
-                        <input type="number" name="daycounts" class="mt-1 w-16 pl-3 pr-1 py-1 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                        <input type="number" class="mt-1 w-16 pl-3 pr-1 py-1 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                        天内处理</label>
                 </div>
 
@@ -168,10 +170,10 @@
                       <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" required>
                     </div>
 
-                    <label for="comments" class="mt-10 block text-sm font-medium text-gray-700">相关建议</label>
+                    <label for="comment" class="mt-10 block text-sm font-medium text-gray-700">相关建议</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="comments" id="comments" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="comment" id="comment" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">
                     </div>
 
 

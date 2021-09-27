@@ -31,7 +31,7 @@ class TicketController extends Controller
 
     // Save and submit the ticket.
 
-    public function store(Ticket $ticket)
+    public function store(Ticket $ticket, Request $request)
     {
          $ticket = Ticket::create($request->except('_token'));
 

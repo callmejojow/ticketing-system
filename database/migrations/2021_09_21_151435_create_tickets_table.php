@@ -17,10 +17,10 @@ class CreateTicketsTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->unsignedInteger('user_id');
-            $table->unsignedInteger('manager_id')->nullable();
-            $table->unsignedInteger('location_id')->nullable();
-            $table->unsignedInteger('team_id')->nullable();
+            $table->string('user_id');
+            $table->string('manager_id')->nullable();
+            $table->string('location_id')->nullable();
+            $table->string('team_id')->nullable();
 
             $table->string('status')->default('pending');
             $table->string('priority')->default('nonurgent');
