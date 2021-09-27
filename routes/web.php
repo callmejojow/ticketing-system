@@ -25,7 +25,7 @@ Route::get('tickets/notfound', function () {
 
 Route::name('tickets.')->group(function(){
 
-Route::get('/tickets',[TicketController::class,'index'])->name('index');
+Route::get('/tickets/index',[TicketController::class,'index'])->name('index');
 
 Route::get('/tickets/{id}/show',[TicketController::class,'show'])->name('show')
     ->missing(function(){
