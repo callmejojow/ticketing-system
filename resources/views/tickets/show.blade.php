@@ -3,11 +3,13 @@
 @section('content')
 <div class="text-center mb-10 mt-10">
     <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-       问题报告单
+       问题报告单 #{{ $ticket->id }}
     </h2>
+    <p class="mt-4 block text-gray-400 text-sm">
+       发布于 <time>{{ $ticket->created_at->diffForHumans() }}</time>
+    </p>
 </div>
 
-<!-- 静态数据即可，检查blade格式 -->
 
   <div class="space-y-6 bg-gray-100">
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
@@ -28,7 +30,7 @@
                       员工姓名
                     </label>
                     <div class="mt-1 flex rounded-md shadow-sm">
-                      <input type="text" name="user_id" id="user_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" required value="{{ $ticket->user_id }}">
+                      <input type="text" name="user_id" id="user_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" disabled value="{{ $ticket->user_id }}">
 
                        @error('user_id')
                           <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>
@@ -40,9 +42,6 @@
                     </label>
                     <select id="manager_id" name="manager_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md ">
                         <option selected>{{ $ticket->manager_id }}</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
                     </select>
 
 
@@ -50,14 +49,7 @@
                       所属门店
                     </label>
                     <select id="location_id" name="location_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                        <option selected>{{ $ticket->location_id }}）</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
+                        <option selected>{{ $ticket->location_id }}</option>
                     </select>
 
                     <label for="team_id" class="block text-sm font-medium text-gray-700">
@@ -65,11 +57,6 @@
                     </label>
                     <select id="team_id" name="team_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                         <option selected>{{ $ticket->team_id }}</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
                     </select>
 
                 </div>
@@ -115,34 +102,14 @@
             <fieldset>
               <div>
                 <legend class="text-lg font-medium text-gray-700">申请紧急程度</legend>
-
-                 @error('priority')
-                 <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>
-                 @enderror
               </div>
               <div class="mt-4 space-y-4">
                 <div class="flex items-center">
-                  <input id="urgent" name="priority" type="radio" value="Urgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                  <input id="saved" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" disabled>
 
-                    <label for="urgent" class="ml-3 block text-sm font-medium text-gray-700">
-                    请尽快处理
+                    <label for="saved" class="ml-3 block text-sm font-medium text-gray-700">
+                    {{ $ticket->priority}}
                     </label>
-                </div>
-
-                <div class="flex items-center">
-                  <input id="limited_days" name="priority" type="radio" value="LimitedDays" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
-                    <label for="limited_days" class="ml-3 block text-sm font-medium text-gray-700">
-                       请在
-                        <input type="number" class="mt-1 w-16 pl-3 pr-1 py-1 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                       天内处理</label>
-                </div>
-
-                <div class="flex items-center">
-                  <input id="nonurgent" name="priority" type="radio" value="Nonurgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
-                    <label for="nonurgent" class="ml-3 block text-sm font-medium text-gray-700">
-                    非紧急
-                    </label>
-                </div>
             </fieldset>
         </div>
       </div>
@@ -161,25 +128,22 @@
 
                     <label for="description" class="block text-sm font-medium text-gray-700">问题描述</label>
 
-                          @error('description')
-                          <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>
-                          @enderror
-
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+                      <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" disabled value="{{ $ticket->description }}">
+
                     </div>
 
                     <label for="comment" class="mt-10 block text-sm font-medium text-gray-700">相关建议</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="comment" id="comment" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="comment" id="comment" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" disabled value="{{ $ticket->comment }}">
                     </div>
 
 
                     <label for="solution" class="mt-10 block text-sm font-medium text-gray-700">解决方案</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="solution" id="solution" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="solution" id="solution" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" disabled value="{{ $ticket->solution }}">
                     </div>
                   </div>
            </div>
@@ -188,7 +152,7 @@
                         <a class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" href="index">
                           {{ __('Back') }}
                         </a>
-                        <a class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                        <a class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" href="edit">
                           {{ __('Edit') }}
                         </a>
            </div>

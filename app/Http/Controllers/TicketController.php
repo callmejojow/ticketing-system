@@ -22,6 +22,12 @@ class TicketController extends Controller
         return view('tickets.show', compact('ticket'));
     }
 
+    public function edit(Ticket $ticket)
+    {
+
+        return view('tickets.edit', compact('ticket'));
+    }
+
     public function index()
     {
         $index = Ticket::paginate(5);

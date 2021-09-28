@@ -25,21 +25,21 @@ Route::get('tickets/notfound', function () {
 
 Route::name('tickets.')->group(function(){
 
-Route::get('/tickets/index',[TicketController::class,'index'])->name('index');
+Route::get('tickets/index',[TicketController::class,'index'])->name('index');
 
-Route::get('/tickets/{id}/show',[TicketController::class,'show'])->name('show')
+Route::get('tickets/{ticket}/show',[TicketController::class,'show'])->name('show')
     ->missing(function(){
         return response()->view('notfound');
     });
 
-Route::get('/tickets/{id}/edit',[TicketController::class,'edit'])->name('edit');
+Route::get('tickets/{ticket}/edit',[TicketController::class,'edit'])->name('edit');
 
-Route::patch('/tickets/{id}/update',[TicketController::class,'update'])->name('update');
+Route::patch('tickets/{ticket}/edit',[TicketController::class,'update'])->name('update');
 
-Route::post('/tickets/create',[TicketController::class,'store'])->name('store');
+Route::post('tickets/create',[TicketController::class,'store'])->name('store');
 
 Route::get('tickets/create',[TicketController::class,'create'])->name('create');
 
-Route::delete('/tickets/{id}/delete',[UserController::class,'destroy'])->name('destroy');
+Route::delete('tickets/{ticket}/delete',[UserController::class,'destroy'])->name('destroy');
 
 });
