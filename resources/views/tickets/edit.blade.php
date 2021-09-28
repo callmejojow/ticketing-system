@@ -7,7 +7,7 @@
     </h2>
 </div>
 
-<!-- 静态数据即可，检查blade格式 -->
+<!-- 需要用if+blade呈现已有数据并允许修改 -->
 
   <div class="space-y-6 bg-gray-100">
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">

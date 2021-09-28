@@ -32,6 +32,8 @@ Route::get('/tickets/{id}/show',[TicketController::class,'show'])->name('show')
         return response()->view('notfound');
     });
 
+Route::get('/tickets/{id}/edit',[TicketController::class,'edit'])->name('edit');
+
 Route::patch('/tickets/{id}/update',[TicketController::class,'update'])->name('update');
 
 Route::post('/tickets/create',[TicketController::class,'store'])->name('store');
