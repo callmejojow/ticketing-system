@@ -54,10 +54,12 @@
                                       </table>
 
                                     @else
-                                        <h3>尚未创建任何报告单。<h3>
+                                        <h3>尚未创建任何报告单。</h3>
                                     @endif
                                   </div>
+                                  <div class="mt-3">
                                         {{ $tickets->links() }}
+                                  </div>
                               </div>
                           </div>
                       </div>
