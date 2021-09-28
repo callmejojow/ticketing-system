@@ -43,9 +43,9 @@
                     </label>
                     <select id="manager_id" name="manager_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md ">
                         <option selected>{{ $ticket->manager_id }}</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                        <option value="1" @if(old('manager_id') == '1') selected="selected" @endif>1</option>
+                        <option value="2" @if(old('manager_id') == '2') selected="selected" @endif>2</option>
+                        <option value="3" @if(old('manager_id') == '3') selected="selected" @endif>3</option>
                     </select>
 
 
@@ -54,13 +54,13 @@
                     </label>
                     <select id="location_id" name="location_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                         <option selected>{{ $ticket->location_id }}</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
+                        <option value="1" @if(old('location_id') == '1') selected="selected" @endif>1</option>
+                        <option value="2" @if(old('location_id') == '2') selected="selected" @endif>2</option>
+                        <option value="3" @if(old('location_id') == '3') selected="selected" @endif>3</option>
+                        <option value="4" @if(old('location_id') == '4') selected="selected" @endif>4</option>
+                        <option value="5" @if(old('location_id') == '5') selected="selected" @endif>5</option>
+                        <option value="6" @if(old('location_id') == '6') selected="selected" @endif>6</option>
+                        <option value="7" @if(old('location_id') == '7') selected="selected" @endif>7</option>
                     </select>
 
                     <label for="team_id" class="block text-sm font-medium text-gray-700">
@@ -68,11 +68,11 @@
                     </label>
                     <select id="team_id" name="team_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                         <option selected>{{ $ticket->team_id }}</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                        <option value="1" @if(old('ticket_id') == '1') selected="selected" @endif>1</option>
+                        <option value="2" @if(old('ticket_id') == '2') selected="selected" @endif>2</option>
+                        <option value="3" @if(old('ticket_id') == '3') selected="selected" @endif>3</option>
+                        <option value="4" @if(old('ticket_id') == '4') selected="selected" @endif>4</option>
+                        <option value="5" @if(old('ticket_id') == '5') selected="selected" @endif>5</option>
                     </select>
 
                 </div>
@@ -125,7 +125,7 @@
               </div>
               <div class="mt-4 space-y-4">
                 <div class="flex items-center">
-                  <input id="urgent" name="priority" type="radio" value="Urgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                  <input id="urgent" name="priority" type="radio" value="Urgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == 'urgent') checked="true" @endif>
 
                     <label for="urgent" class="ml-3 block text-sm font-medium text-gray-700">
                     请尽快处理
@@ -133,7 +133,7 @@
                 </div>
 
                 <div class="flex items-center">
-                  <input id="limited_days" name="priority" type="radio" value="LimitedDays" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                  <input id="limited_days" name="priority" type="radio" value="LimitedDays" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == 'limited_days') checked="true" @endif>
                     <label for="limited_days" class="ml-3 block text-sm font-medium text-gray-700">
                        请在
                         <input type="number" class="mt-1 w-16 pl-3 pr-1 py-1 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
@@ -141,7 +141,7 @@
                 </div>
 
                 <div class="flex items-center">
-                  <input id="nonurgent" name="priority" type="radio" value="Nonurgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                  <input id="nonurgent" name="priority" type="radio" value="Nonurgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == 'nonurgent') checked="true" @endif>
                     <label for="nonurgent" class="ml-3 block text-sm font-medium text-gray-700">
                     非紧急
                     </label>
@@ -169,20 +169,20 @@
                           @enderror
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+                      <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" required value="{{ old('description', $ticket->description) }}">
                     </div>
 
                     <label for="comment" class="mt-10 block text-sm font-medium text-gray-700">相关建议</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="comment" id="comment" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="comment" id="comment" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('comment', $ticket->comment) }}">
                     </div>
 
 
                     <label for="solution" class="mt-10 block text-sm font-medium text-gray-700">解决方案</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="solution" id="solution" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <input type="text" name="solution" id="solution" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('solution', $ticket->solution) }}">
                     </div>
                   </div>
            </div>
