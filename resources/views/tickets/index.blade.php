@@ -34,6 +34,12 @@
                                                  <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                                     提交日期
                                                  </th>
+                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    修改日期
+                                                 </th>
+                                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                                    报告状态
+                                                 </th>
                                              </tr>
 
                                            </thead>
@@ -49,6 +55,12 @@
                                                   </td>
                                                   <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                     {{ $ticket->created_at }}
+                                                  </td> 
+                                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {{ $ticket->updated_at }}
+                                                  </td> 
+                                                  <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                                    {{ $ticket->status }}
                                                   </td>     
                                                  </tr>
                                            @endforeach

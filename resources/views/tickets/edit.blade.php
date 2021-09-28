@@ -3,11 +3,14 @@
 @section('content')
 <div class="text-center mb-10 mt-10">
     <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-       问题报告单
+       问题报告单 #{{ $ticket->id }}
     </h2>
 </div>
 
-<!-- 需要用if+blade呈现已有数据并允许修改 -->
+  <form class="space-y-6" method="POST" 
+        action="{{ route('tickets.update', $ticket) }}">
+      @method('PATCH')
+      @csrf
 
   <div class="space-y-6 bg-gray-100">
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
@@ -28,7 +31,7 @@
                       员工姓名
                     </label>
                     <div class="mt-1 flex rounded-md shadow-sm">
-                      <input type="text" name="user_id" id="user_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" required value="{{ $ticket->user_id }}">
+                      <input type="text" name="user_id" id="user_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md" required value="{{ old('user_id', $ticket->user_id) }}">
 
                        @error('user_id')
                           <p class="text-red-500 text-xs mt-1"> {{ $message }}</p>
@@ -50,7 +53,7 @@
                       所属门店
                     </label>
                     <select id="location_id" name="location_id" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                        <option selected>{{ $ticket->location_id }}）</option>
+                        <option selected>{{ $ticket->location_id }}</option>
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
@@ -185,11 +188,11 @@
            </div>
 
            <div class="mt-6 mb-6 flex justify-end sm:mb-3">
-                        <a class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" href="index">
-                          {{ __('Back') }}
+                        <a class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" href="{{ route('tickets.show', $ticket) }}">
+                          {{ __('Cancel') }}
                         </a>
-                        <a class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
-                          {{ __('Edit') }}
+                        <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                          {{ __('Update') }}
                         </a>
            </div>
          </div>
