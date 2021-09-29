@@ -169,20 +169,20 @@
                           @enderror
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" required>
+                      <textarea type="text" name="description" id="description" class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" required></textarea>
                     </div>
 
                     <label for="comment" class="mt-10 block text-sm font-medium text-gray-700">相关建议</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="comment" id="comment" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <textarea type="text" name="comment" id="comment" class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                     </div>
 
 
                     <label for="solution" class="mt-10 block text-sm font-medium text-gray-700">解决方案</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="solution" id="solution" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">
+                      <textarea type="text" name="solution" id="solution" class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md"></textarea>
                     </div>
                   </div>
            </div>

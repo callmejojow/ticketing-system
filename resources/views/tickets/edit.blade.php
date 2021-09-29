@@ -175,20 +175,20 @@
                           @enderror
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" required value="{{ old('description', $ticket->description) }}">
+                      <textarea type="text" name="description" id="description" class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" required >{{ old('description', $ticket->description) }}</textarea>
                     </div>
 
                     <label for="comment" class="mt-10 block text-sm font-medium text-gray-700">相关建议</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="comment" id="comment" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('comment', $ticket->comment) }}">
+                      <textarea type="text" name="comment" id="comment" class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">{{ old('comment', $ticket->comment) }}</textarea>
                     </div>
 
 
                     <label for="solution" class="mt-10 block text-sm font-medium text-gray-700">解决方案</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="solution" id="solution" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" value="{{ old('solution', $ticket->solution) }}">
+                      <textarea type="text" name="solution" id="solution" class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md">{{ old('solution', $ticket->solution) }}</textarea>
                     </div>
                   </div>
            </div>
@@ -201,6 +201,11 @@
                           {{ __('Update') }}
                         </a>
            </div>
+           @if (session('success'))
+              <div class="alert alert-success">
+              {{ session('success') }}
+              </div>
+           @endif
          </div>
         </div>
        </form>

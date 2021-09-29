@@ -182,21 +182,21 @@
                     <label for="description" class="block text-sm font-medium text-gray-700">问题描述</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="description" id="description" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" disabled value="{{ $ticket->description }}">
+                      <textarea type="text" name="description" id="description" class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>{{ $ticket->description }}</textarea>
 
                     </div>
 
                     <label for="comment" class="mt-10 block text-sm font-medium text-gray-700">相关建议</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="comment" id="comment" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" disabled value="{{ $ticket->comment }}">
+                      <textarea type="text" name="comment" id="comment" class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>{{ $ticket->comment }}</textarea>
                     </div>
 
 
                     <label for="solution" class="mt-10 block text-sm font-medium text-gray-700">解决方案</label>
 
                     <div class="mt-2 flex rounded-md shadow-sm">
-                      <input type="text" name="solution" id="solution" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" disabled value="{{ $ticket->solution }}">
+                      <textarea type="text" name="solution" id="solution" class="mt-1 p-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full h-48 shadow-sm sm:text-sm border-gray-300 rounded-md" disabled>{{ $ticket->solution }}</textarea>
                     </div>
                   </div>
            </div>

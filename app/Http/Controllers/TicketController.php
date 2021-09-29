@@ -62,7 +62,7 @@ class TicketController extends Controller
         }
 
          return redirect()->route('tickets.index')
-        ->with(['message'=>'Your request is sent successfully.']);
+        ->with('success','您的报告单已发送。');
     }
 
 
@@ -71,14 +71,14 @@ class TicketController extends Controller
 
         $ticket->update($request->all());
 
-        return view('tickets.show', compact('ticket'))
-        ->with(['message'=>'Your request is updated successfully.']);
+        return redirect()->route('tickets.show', $ticket)
+        ->with('success','您的报告单信息已更新。');
     }
 
     public function delete(Ticket $ticket)
     {
       $ticket->delete();
 
-      return redirect()->route('tickets.index')->with(['message'=>'Your request is deleted successfully.']);
+      return redirect()->route('tickets.index')->with('success','您所选的报告单已删除。');
     }
 }
