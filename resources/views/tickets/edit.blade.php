@@ -125,26 +125,32 @@
               </div>
               <div class="mt-4 space-y-4">
                 <div class="flex items-center">
-                  <input id="urgent" name="priority" type="radio" value="Urgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == 'urgent') checked="true" @endif>
+                  <input id="urgent" name="priority" type="radio" value="urgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == 'urgent') checked="true" @endif>
 
-                    <label for="urgent" class="ml-3 block text-sm font-medium text-gray-700">
+                  <label for="urgent" class="ml-3 block text-sm font-medium text-gray-700">
                     请尽快处理
-                    </label>
+                  </label>
                 </div>
 
                 <div class="flex items-center">
-                  <input id="limited_days" name="priority" type="radio" value="LimitedDays" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == 'limited_days') checked="true" @endif>
-                    <label for="limited_days" class="ml-3 block text-sm font-medium text-gray-700">
-                       请在
-                        <input type="number" class="mt-1 w-16 pl-3 pr-1 py-1 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                       天内处理</label>
+                  <input id="3" name="priority" type="radio" value="3" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == '3') checked="true" @endif>
+                  <label for="3" class="ml-3 block text-sm font-medium text-gray-700">
+                       请在3天内处理
+                  </label>
                 </div>
 
                 <div class="flex items-center">
-                  <input id="nonurgent" name="priority" type="radio" value="Nonurgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == 'nonurgent') checked="true" @endif>
-                    <label for="nonurgent" class="ml-3 block text-sm font-medium text-gray-700">
+                  <input id="7" name="priority" type="radio" value="7" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == '7') checked="true" @endif>
+                  <label for="7" class="ml-3 block text-sm font-medium text-gray-700">
+                       请在一周内处理
+                  </label>
+                </div>
+
+                <div class="flex items-center">
+                  <input id="nonurgent" name="priority" type="radio" value="nonurgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required @if($ticket->priority == 'nonurgent') checked="true" @endif>
+                  <label for="nonurgent" class="ml-3 block text-sm font-medium text-gray-700">
                     非紧急
-                    </label>
+                  </label>
                 </div>
             </fieldset>
         </div>

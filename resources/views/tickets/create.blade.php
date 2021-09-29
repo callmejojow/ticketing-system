@@ -123,7 +123,7 @@
               </div>
               <div class="mt-4 space-y-4">
                 <div class="flex items-center">
-                  <input id="priority" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                  <input id="urgent" name="priority" type="radio" value="urgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
 
                     <label for="urgent" class="ml-3 block text-sm font-medium text-gray-700">
                     请尽快处理
@@ -131,15 +131,17 @@
                 </div>
 
                 <div class="flex items-center">
-                  <input id="priority" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
-                    <label for="limited_days" class="ml-3 block text-sm font-medium text-gray-700">
-                       请在
-                        <input type="number" class="mt-1 w-16 pl-3 pr-1 py-1 text-base border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                       天内处理</label>
+                  <input id="7" name="priority" type="radio" value="7" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                    <label for="7" class="ml-3 block text-sm font-medium text-gray-700">请在一周内处理</label>
                 </div>
 
                 <div class="flex items-center">
-                  <input id="priority" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                  <input id="3" name="priority" type="radio" value="3" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
+                    <label for="3" class="ml-3 block text-sm font-medium text-gray-700">请在3天内处理</label>
+                </div>
+
+                <div class="flex items-center">
+                  <input id="nonurgent" name="priority" type="radio" value="nonurgent" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" required>
                     <label for="nonurgent" class="ml-3 block text-sm font-medium text-gray-700">
                     非紧急
                     </label>

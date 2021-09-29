@@ -105,11 +105,64 @@
               </div>
               <div class="mt-4 space-y-4">
                 <div class="flex items-center">
-                  <input id="saved" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" disabled>
+                  <input id="priority" name="priority" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" disabled>
 
-                    <label for="saved" class="ml-3 block text-sm font-medium text-gray-700">
-                    {{ $ticket->priority}}
+                    @if($ticket->priority == 'urgent')
+                     <label for="urgent" class="ml-3 block text-sm font-medium text-gray-700">
+                      <p>请尽快处理</p>
+                     </label>
+
+                    @elseif($ticket->priority == 'nonurgent') 
+                     <label for="nonurgent" class="ml-3 block text-sm font-medium text-gray-700">
+                      <p>非紧急</p>
+                     </label>
+
+                    @elseif($ticket->priority == '7') 
+                     <label for="7" class="ml-3 block text-sm font-medium text-gray-700">
+                      <p>请在一周内处理</p>
+                     </label>
+
+                    @elseif($ticket->priority == '3') 
+                     <label for="3" class="ml-3 block text-sm font-medium text-gray-700">
+                      <p>请在3天内处理</p>
+                     </label>
+                    @else 
+                     <label for="nopriority" class="ml-3 block text-sm font-medium text-gray-700">
+                      <p>系统无记录</p>
+                     </label>
+                    @endif
+                    
+            </fieldset>
+
+            <fieldset>
+              <div class="mt-10">
+                <legend class="text-lg font-medium text-gray-700">报告单处理情况</legend>
+              </div>
+              <div class="mt-4 space-y-4">
+                <div class="flex items-center">
+                  <input id="status" name="status" type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 required" disabled>
+
+                  @if($ticket->status == 'pending') 
+                    <label for="pending" class="ml-3 block text-sm font-medium text-gray-700">
+                      <p>问题已提交</p>
                     </label>
+
+                  @elseif($ticket->status == 'inprogress')
+                    <label for="inprogress" class="ml-3 block text-sm font-medium text-gray-700">
+                      <p>处理中</p>
+                    </label>   
+                  @elseif($ticket->status == 'solved')
+                    <label for="solved" class="ml-3 block text-sm font-medium text-gray-700">
+                      <p>已解决</p>
+                    </label> 
+
+                  @else
+                    <label for="nostatus" class="ml-3 block text-sm font-medium text-gray-700">
+                      <p>系统无记录</p>
+                    </label> 
+                      
+                  @endif
+                    
             </fieldset>
         </div>
       </div>

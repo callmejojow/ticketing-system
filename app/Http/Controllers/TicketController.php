@@ -30,7 +30,7 @@ class TicketController extends Controller
 
     public function index()
     {
-        $index = Ticket::paginate(5);
+        $index = Ticket::paginate(10);
         return view('tickets.index',['tickets' => $index]);
     }
 
