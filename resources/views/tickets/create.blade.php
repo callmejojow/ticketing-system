@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="text-center mb-10 mt-10">
+<div class="text-center mb-10">
     <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
        问题报告单
     </h2>

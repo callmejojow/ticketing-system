@@ -1,17 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="text-center mb-10 mt-10">
-    <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+<div class="text-center mb-10">
+    <h2 class="pt-6 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
        问题报告单 #{{ $ticket->id }}
     </h2>
-    <p class="mt-4 block text-gray-400 text-sm">
+    <p class="mt-2 block text-gray-400 text-sm">
        发布于 <time>{{ $ticket->created_at->diffForHumans() }}</time>
     </p>
 </div>
 
 
-  <div class="space-y-6 bg-gray-100">
+  <div class="p-2 w-screen space-y-6 bg-gray-100">
     <div class="bg-white shadow px-4 py-5 sm:rounded-lg sm:p-6">
       <div class="md:grid md:grid-cols-3 md:gap-6">
         <div class="md:col-span-1 rounded-sm">

@@ -8,7 +8,7 @@ use App\Models\Ticket;
 
 class TicketController extends Controller
 {
-    // Show the page of creating a ticket.
+
 
     public function create()
     {
@@ -35,7 +35,7 @@ class TicketController extends Controller
     }
 
 
-    // Save and submit the ticket.
+
 
     public function store(Ticket $ticket, Request $request)
     {

@@ -14,6 +14,11 @@
                      </p>
                    </div>
                   <div class="ml-4 mt-4 flex-shrink-0">
+                      <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-lg px-6 py-2 mr-6">
+                          <form method="GET" action="#">
+                              <input type="search" name="search" placeholder="请输入关键词…" class="bg-transparent placeholder-gray font-medium text-sm" value="{{ request('search') }}">
+                          </form>
+                      </div>
                       <a class="inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" href="create">
                         {{ __('Create') }}
                       </a>
